@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2807bb09843d4c74a873c3ca985ff602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnAmount: 128
+  spawnAmount: 1024
   boids: []
   prefab: {fileID: 9091203335442596607, guid: 886ce4455ca142944b43351f10af9773, type: 3}
   repellingFac: 1
@@ -465,7 +465,7 @@ MonoBehaviour:
   repelDist: 0.5
   flockDist: 1
   speed: 1
-  computeMode: 0
+  computeMode: 1
   shader: {fileID: 7200000, guid: 6e40a4789972ee442b5ee6d9ed6c32a1, type: 3}
 --- !u!65 &2102492265
 BoxCollider:

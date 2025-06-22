@@ -30,8 +30,6 @@ public class BoidManager : MonoBehaviour
     public ComputeMode computeMode = ComputeMode.CPU;
 
     public ComputeShader shader;
-    const int THREADSX = 10;
-    const int THREADSY = 1;
 
     private void Awake()
     {
@@ -43,13 +41,17 @@ public class BoidManager : MonoBehaviour
         {
             Spawn(spawnAmount);
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             Spawn();
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             Delete(spawnAmount);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Delete();
         }
         if (computeMode == ComputeMode.CPU)
         {
@@ -139,6 +141,12 @@ public class BoidManager : MonoBehaviour
         boids.RemoveRange(0, amount);
     }
 
+    void Delete()
+    {
+        Boid boid = boids[0];
+        Destroy(boid.gameObject);
+        boids.RemoveAt(0);
+    }
     public List<Vector3> GetClosestDist(Vector3 pos, float radius = 1, Boid self = null)
     {
         List<Vector3> list = new();

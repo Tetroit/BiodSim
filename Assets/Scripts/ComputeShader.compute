@@ -1,6 +1,8 @@
 // Each #kernel tells which function to compile; you can have many kernels
 #pragma kernel CSMain
 
+
+#define THREADS 128
 // Create a RenderTexture with enableRandomWrite flag and set it
 // with cs.SetTexture
 struct Boid
@@ -23,10 +25,10 @@ float flockDist = 1.0f;
 float _DeltaTime = 0;
 
 
-[numthreads(10,1,1)]
+[numthreads(THREADS,1,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-    uint stride = 10;
+    uint stride = THREADS;
     for (uint current = id.x; current<elementCount; current+=stride)
     {
         float3 avDir = (float3)0;
